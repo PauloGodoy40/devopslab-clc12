@@ -4,5 +4,4 @@ Dockerfile
 .gitignore
 LICENSE
 README.md
-test.py
-.pytest_cache
+
