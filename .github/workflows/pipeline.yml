@@ -23,10 +23,14 @@ jobs:
           python-version: '3.10'
 
       - name: Install Requirements
-        run:  pip install flask
+        run:  pip install flask flask-wtf pytest pytest-cov
 
       - name: Unit Test
-        run: python -m unittest -v test
+        run: |
+             python -m unittest -v test
+             coverge run --source=app -n pytest test.py
+             coverge report -m
+             coverge xml -i
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v4  #https://github.com/marketplace/actions/official-sonarqube-scan
